@@ -1,35 +1,126 @@
 import { buttonVariants } from '@/components/ui/button';
-import { page_routes } from '@/lib/routes-config';
+import { page_routes, ROUTES } from '@/lib/routes-config';
+import {
+  BookOpenIcon,
+  AtomIcon,
+  ZapIcon,
+  HeartPulseIcon,
+  ShieldCheckIcon,
+  ActivityIcon,
+  ArrowRightIcon,
+} from 'lucide-react';
 import Link from 'next/link';
 
+const MODULE_META = [
+  { icon: AtomIcon, accent: 'from-cyan-500/15 to-blue-500/5' },
+  { icon: ZapIcon, accent: 'from-amber-500/15 to-orange-500/5' },
+  { icon: HeartPulseIcon, accent: 'from-rose-500/15 to-pink-500/5' },
+  { icon: ShieldCheckIcon, accent: 'from-emerald-500/15 to-teal-500/5' },
+  { icon: ActivityIcon, accent: 'from-violet-500/15 to-indigo-500/5' },
+];
+
 export default function Home() {
+  const modules = ROUTES.filter((r) => r.noLink && r.items);
+
   return (
-    <div className='flex sm:min-h-[85.5vh] min-h-[85vh] flex-col items-center justify-center text-center px-2 sm:py-8 py-12'>
-      <h1 className='text-3xl font-bold mb-4 sm:text-6xl'>
-        Radiation Protection for Healthcare Workers
-      </h1>
-      <p className='mb-8 sm:text-lg max-w-[800px] text-muted-foreground'>
-        A Digital Educational Application in Radiation Protection for
-        Non-Radiation Health Care Workers
-      </p>
-      <div className='flex flex-row items-center gap-5'>
-        <Link
-          href={`/docs${page_routes[0].href}`}
-          className={buttonVariants({ className: 'px-6', size: 'lg' })}
-        >
-          Start Learning
-        </Link>
-        <Link
-          href='/quiz'
-          className={buttonVariants({
-            variant: 'secondary',
-            className: 'px-6',
-            size: 'lg',
-          })}
-        >
-          Start quiz
-        </Link>
-      </div>
+    <div className='flex flex-col'>
+      {/* Hero */}
+      <section className='relative flex min-h-[85vh] flex-col items-center justify-center text-center px-4 py-20 overflow-hidden'>
+        {/* Subtle radial glow */}
+        <div className='absolute inset-0 -z-10'>
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/[0.04] rounded-full blur-3xl' />
+        </div>
+
+        <p className='text-sm font-medium tracking-widest uppercase text-primary mb-8'>
+          Educational Application
+        </p>
+
+        <h1 className='font-display text-5xl sm:text-7xl mb-6 max-w-[850px] leading-[1.1] tracking-tight'>
+          Radiation Protection for Healthcare Workers
+        </h1>
+
+        <p className='mb-12 text-lg max-w-[560px] text-muted-foreground leading-relaxed'>
+          Five self-paced modules covering the physics of ionizing radiation,
+          biological effects, and practical protection measures in clinical
+          settings.
+        </p>
+
+        <div className='flex flex-col sm:flex-row items-center gap-4'>
+          <Link
+            href={`/docs${page_routes[0].href}`}
+            className={buttonVariants({
+              className: 'px-8 cursor-pointer gap-2',
+              size: 'lg',
+            })}
+          >
+            <BookOpenIcon className='w-4 h-4' />
+            Start Learning
+          </Link>
+          <Link
+            href='/quiz'
+            className={buttonVariants({
+              variant: 'ghost',
+              className: 'px-8 cursor-pointer gap-2 text-muted-foreground',
+              size: 'lg',
+            })}
+          >
+            Take the Quiz
+            <ArrowRightIcon className='w-4 h-4' />
+          </Link>
+        </div>
+      </section>
+
+      {/* Modules */}
+      <section className='pb-24 px-4'>
+        <div className='max-w-[900px] mx-auto'>
+          <p className='text-sm font-medium tracking-widest uppercase text-primary mb-4'>
+            Curriculum
+          </p>
+          <h2 className='font-display text-3xl sm:text-4xl mb-12'>
+            Five Learning Modules
+          </h2>
+
+          <div className='flex flex-col gap-3'>
+            {modules.map((mod, i) => {
+              const meta = MODULE_META[i];
+              const Icon = meta?.icon || ShieldCheckIcon;
+              const firstChild = mod.items?.[0];
+              const href = firstChild
+                ? `/docs${mod.href}${firstChild.href}`
+                : '#';
+              const title = mod.title.replace(/^Module \d+:\s*/, '');
+
+              return (
+                <Link
+                  key={mod.href}
+                  href={href}
+                  className='group flex items-center gap-5 rounded-xl border p-5 transition-all duration-200 hover:border-primary/30 hover:shadow-sm cursor-pointer'
+                >
+                  <div
+                    className={`shrink-0 rounded-lg bg-gradient-to-br ${meta?.accent || ''} p-3`}
+                  >
+                    <Icon className='w-5 h-5 text-foreground/70' />
+                  </div>
+
+                  <div className='flex-1 min-w-0'>
+                    <div className='flex items-baseline gap-3 mb-1'>
+                      <span className='text-xs font-mono text-muted-foreground'>
+                        0{i + 1}
+                      </span>
+                      <h3 className='font-semibold truncate'>{title}</h3>
+                    </div>
+                    <p className='text-sm text-muted-foreground'>
+                      {mod.items?.length} sections
+                    </p>
+                  </div>
+
+                  <ArrowRightIcon className='w-4 h-4 text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-200 shrink-0' />
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
