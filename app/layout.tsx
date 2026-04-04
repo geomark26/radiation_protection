@@ -20,10 +20,10 @@ const monoFont = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'OCT Education',
+  title: 'Radiation Protection Education',
   metadataBase: new URL('https://ariadocs.vercel.app/'),
   description:
-    'This comprehensive documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your project documentation requirements.',
+    'A digital educational application in radiation protection for non-radiation health care workers.',
 };
 
 export default function RootLayout({

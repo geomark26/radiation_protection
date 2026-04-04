@@ -8,96 +8,158 @@ export type EachRoute = {
 };
 
 export const ROUTES: EachRoute[] = [
-  { title: 'Introduction', href: '/introduction' },
   {
-    title: 'Ophthalmology',
+    title: 'Module 1: Basic Physics of Ionizing Radiation',
     href: '/chapter-1',
     noLink: true,
     items: [
       {
-        title: 'Eye Anatomy',
-        href: '/eye-anatomy',
+        title: 'Introduction',
+        href: '/introduction',
       },
       {
-        title: 'Eye Physiology',
-        href: '/eye-physiology',
+        title: 'Electromagnetic and Particulate Radiation',
+        href: '/electromagnetic-and-particulate-radiation',
+      },
+      {
+        title: 'Atomic Structure',
+        href: '/atomic-structure',
+      },
+      {
+        title: 'Radioactivity',
+        href: '/radioactivity',
       },
     ],
   },
   {
-    title: 'Optical Coherence Tomography (OCT)',
+    title: 'Module 2: Interactions of Ionizing Radiation with Matter',
     href: '/chapter-2',
     noLink: true,
     items: [
       {
-        title: 'What is Optical Coherence Tomography (OCT)',
-        href: '/oct',
+        title: 'Introduction',
+        href: '/introduction',
       },
       {
-        title: 'Physical Principles of Operation of OCT',
-        href: '/principles-of-oct',
+        title: 'Classification of Radiation',
+        href: '/classification-of-radiation',
       },
       {
-        title: 'Overview of OCT Systems and Methods',
-        href: '/overview-of-oct',
+        title: 'Interactions of High-Energy Photons with Matter',
+        href: '/interactions-of-photons-with-matter',
       },
       {
-        title: 'Medical Applications',
-        href: '/medical-applications',
+        title: 'Interactions of Energetic Charged Particles with Matter',
+        href: '/interactions-of-charged-particles-with-matter',
+      },
+      {
+        title: 'Penetrating Power',
+        href: '/penetrating-power',
+      },
+      {
+        title: 'Quantities and Units',
+        href: '/quantities-and-units',
       },
     ],
   },
   {
-    title: 'Eye Diseases with OCT Images',
-    href: '/eye-diseases',
+    title: 'Module 3: Radiobiology and Biological Effects',
+    href: '/chapter-3',
+    noLink: true,
+    items: [
+      {
+        title: 'Introduction',
+        href: '/introduction',
+      },
+      {
+        title: 'The Cell',
+        href: '/the-cell',
+      },
+      {
+        title: 'Sources of Ionizing Radiation',
+        href: '/sources-of-ionizing-radiation',
+      },
+      {
+        title: 'Radiation Effects on Biological Systems',
+        href: '/radiation-effects-on-biological-systems',
+      },
+      {
+        title: 'Factors Affecting Radiation Damage',
+        href: '/factors-affecting-radiation-damage',
+      },
+      {
+        title: 'Deterministic and Stochastic Effects',
+        href: '/deterministic-and-stochastic-effects',
+      },
+      {
+        title: 'Fetal Irradiation',
+        href: '/fetal-irradiation',
+      },
+    ],
   },
   {
-    title: 'The educational application',
+    title: 'Module 4: Principles and System of Radiation Protection',
     href: '/chapter-4',
     noLink: true,
     items: [
       {
-        title: 'Development of the educational application',
-        href: '/development',
+        title: 'Introduction',
+        href: '/introduction',
       },
       {
-        title: 'Methods and technologies',
-        href: '/methods',
+        title: 'The System of Radiation Protection',
+        href: '/system-of-radiation-protection',
       },
-      { title: 'Vercel Application & Github Code', href: '/vercel' },
-      { title: 'Limitations', href: '/limitations' },
+      {
+        title: 'Types and Categories of Exposure',
+        href: '/types-and-categories-of-exposure',
+      },
+      {
+        title: 'Fundamental Principles of Radiation Protection',
+        href: '/fundamental-principles',
+      },
+      {
+        title: 'Quantities and Units of Radiation Protection',
+        href: '/quantities-and-units-of-radiation-protection',
+      },
+      {
+        title: 'Dose Limits',
+        href: '/dose-limits',
+      },
     ],
   },
   {
-    title: 'Acronyms',
-    href: '/acronyms',
+    title: 'Module 5: Practical Radiation Protection in Medical Applications',
+    href: '/chapter-5',
+    noLink: true,
+    items: [
+      {
+        title: 'Introduction',
+        href: '/introduction',
+      },
+      {
+        title: 'General Radiation Protection Measures',
+        href: '/general-radiation-protection-measures',
+      },
+      {
+        title:
+          'Diagnostic Radiology and Image-Guided Interventional Procedures',
+        href: '/diagnostic-radiology',
+      },
+      {
+        title: 'Nuclear Medicine',
+        href: '/nuclear-medicine',
+      },
+      {
+        title: 'Radiotherapy',
+        href: '/radiotherapy',
+      },
+    ],
   },
   {
     title: 'References',
     href: '/references',
   },
-  // { title: 'Quick Start Guide', href: '/quick-start-guide' },
-  // {
-  //   title: 'Project Structure',
-  //   href: '/project-structure',
-  // },
-  // {
-  //   title: 'Components',
-  //   href: '/components',
-  //   items: [
-  //     { title: 'Stepper', href: '/stepper' },
-  //     { title: 'Tabs', href: '/tabs' },
-  //     { title: 'Note', href: '/note' },
-  //     { title: 'Code Block', href: '/code-block' },
-  //     { title: 'Image & Link', href: '/image-link' },
-  //     { title: 'Custom', href: '/custom' },
-  //   ],
-  // },
-  // { title: 'Themes', href: '/themes' },
-  // {
-  //   title: 'Customize',
-  //   href: '/customize',
-  // },
 ];
 
 type Page = { title: string; href: string };
