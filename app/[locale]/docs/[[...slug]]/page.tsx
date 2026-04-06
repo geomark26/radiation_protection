@@ -5,18 +5,19 @@ import { page_routes } from '@/lib/routes-config';
 import { notFound } from 'next/navigation';
 import { getDocsForSlug } from '@/lib/markdown';
 import { Typography } from '@/components/typography';
+import { getLocale } from 'next-intl/server';
 
 type PageProps = {
-  params: Promise<{ slug: string[] }>;
+  params: Promise<{ slug: string[]; locale: string }>;
 };
 
 export default async function DocsPage(props: PageProps) {
   const params = await props.params;
-
   const { slug = [] } = params;
+  const locale = await getLocale();
 
   const pathName = slug.join('/');
-  const res = await getDocsForSlug(pathName);
+  const res = await getDocsForSlug(pathName, locale);
 
   if (!res) notFound();
   return (
@@ -39,11 +40,10 @@ export default async function DocsPage(props: PageProps) {
 
 export async function generateMetadata(props: PageProps) {
   const params = await props.params;
-
-  const { slug = [] } = params;
+  const { slug = [], locale } = params;
 
   const pathName = slug.join('/');
-  const res = await getDocsForSlug(pathName);
+  const res = await getDocsForSlug(pathName, locale);
   if (!res) return null;
   const { frontmatter } = res;
   return {
