@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "learn": "Learn",
+    "quiz": "Quiz",
+    "language": "Language"
+  },
+  "home": {
+    "badge": "Educational Application",
+    "title": "Radiation Protection for Healthcare Workers",
+    "description": "Five self-paced modules covering the physics of ionizing radiation, biological effects, and practical protection measures in clinical settings.",
+    "startLearning": "Start Learning",
+    "takeQuiz": "Take the Quiz",
+    "curriculum": "Curriculum",
+    "fiveModules": "Five Learning Modules",
+    "sections": "sections"
+  },
+  "quiz": {
+    "welcomeTitle": "Welcome to the Retina / OCT Quiz!",
+    "welcomeDescription": "Test your knowledge about retinal physiology, OCT technology, and more.",
+    "startQuiz": "Start Quiz",
+    "loading": "Loading Questions...",
+    "title": "Retina / OCT Quiz",
+    "question": "Question",
+    "of": "of",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "resultsTitle": "Quiz Results",
+    "answeredCorrectly": "You answered {correct} correctly and {wrong} incorrectly.",
+    "reviewIncorrect": "Review Incorrect Answers",
+    "questionLabel": "Q:",
+    "yourAnswer": "Your Answer:",
+    "correctAnswer": "Correct Answer:",
+    "noAnswer": "No answer selected",
+    "retakeQuiz": "Retake Quiz"
+  },
+  "docs": {
+    "onThisPage": "On this page",
+    "previous": "Previous",
+    "next": "Next",
+    "breadcrumbDocs": "Docs",
+    "searchPlaceholder": "Search documentation...",
+    "searchTypePlaceholder": "Type something to search...",
+    "noResults": "No results found for"
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Page not found :(",
+    "description": "Oops! The page you're looking for doesn't exist.",
+    "backHome": "Back to homepage"
+  },
+  "metadata": {
+    "title": "Radiation Protection Education",
+    "description": "A digital educational application in radiation protection for non-radiation health care workers."
+  },
+  "routes": {
+    "module1": "Module 1: Basic Physics of Ionizing Radiation",
+    "module1-introduction": "Introduction",
+    "module1-electromagnetic": "Electromagnetic and Particulate Radiation",
+    "module1-atomic": "Atomic Structure",
+    "module1-radioactivity": "Radioactivity",
+    "module2": "Module 2: Interactions of Ionizing Radiation with Matter",
+    "module2-introduction": "Introduction",
+    "module2-classification": "Classification of Radiation",
+    "module2-photons": "Interactions of High-Energy Photons with Matter",
+    "module2-charged": "Interactions of Energetic Charged Particles with Matter",
+    "module2-penetrating": "Penetrating Power",
+    "module2-quantities": "Quantities and Units",
+    "module3": "Module 3: Radiobiology and Biological Effects",
+    "module3-introduction": "Introduction",
+    "module3-cell": "The Cell",
+    "module3-sources": "Sources of Ionizing Radiation",
+    "module3-effects": "Radiation Effects on Biological Systems",
+    "module3-factors": "Factors Affecting Radiation Damage",
+    "module3-deterministic": "Deterministic and Stochastic Effects",
+    "module3-fetal": "Fetal Irradiation",
+    "module4": "Module 4: Principles and System of Radiation Protection",
+    "module4-introduction": "Introduction",
+    "module4-system": "The System of Radiation Protection",
+    "module4-types": "Types and Categories of Exposure",
+    "module4-fundamental": "Fundamental Principles of Radiation Protection",
+    "module4-quantities": "Quantities and Units of Radiation Protection",
+    "module4-dose": "Dose Limits",
+    "module5": "Module 5: Practical Radiation Protection in Medical Applications",
+    "module5-introduction": "Introduction",
+    "module5-general": "General Radiation Protection Measures",
+    "module5-diagnostic": "Diagnostic Radiology and Image-Guided Interventional Procedures",
+    "module5-nuclear": "Nuclear Medicine",
+    "module5-radiotherapy": "Radiotherapy",
+    "references": "References"
+  }
+}
