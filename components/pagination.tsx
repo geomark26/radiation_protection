@@ -1,14 +1,12 @@
-'use client';
-
 import { getPreviousNext } from '@/lib/markdown';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { Link } from '@/lib/navigation';
 import { buttonVariants } from './ui/button';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
-export default function Pagination({ pathname }: { pathname: string }) {
+export default async function Pagination({ pathname }: { pathname: string }) {
   const res = getPreviousNext(pathname);
-  const t = useTranslations('docs');
+  const t = await getTranslations('docs');
 
   return (
     <div className='grid grid-cols-2 flex-grow sm:py-10 py-7 gap-3'>

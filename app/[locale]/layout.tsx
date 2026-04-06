@@ -10,7 +10,7 @@ import { routing } from '@/src/i18n/routing';
 import '@/styles/globals.css';
 
 const sansFont = DM_Sans({
-  subsets: ['latin', 'greek'],
+  subsets: ['latin'],
   variable: '--font-geist-sans',
   display: 'swap',
   weight: ['400', '500', '600', '700'],
