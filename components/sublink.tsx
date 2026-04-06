@@ -1,4 +1,4 @@
-import { EachRoute } from '@/lib/routes-config';
+import { EachRoute, ROUTE_TITLE_KEYS } from '@/lib/routes-config';
 import Anchor from './anchor';
 import {
   Collapsible,
@@ -10,6 +10,7 @@ import { SheetClose } from '@/components/ui/sheet';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 export default function SubLink({
   title,
@@ -18,12 +19,16 @@ export default function SubLink({
   noLink,
   level,
   isSheet,
-}: EachRoute & { level: number; isSheet: boolean }) {
+  translatedTitle,
+}: EachRoute & { level: number; isSheet: boolean; translatedTitle?: string }) {
   const path = usePathname();
   const [isOpen, setIsOpen] = useState(level == 0);
+  const tRoutes = useTranslations('routes');
+
+  const displayTitle = translatedTitle || title;
 
   useEffect(() => {
-    if (path == href || path.includes(href)) setIsOpen(true);
+    if (path.includes(href)) setIsOpen(true);
   }, [href, path]);
 
   const Comp = (
@@ -31,7 +36,7 @@ export default function SubLink({
       activeClassName='text-primary dark:font-medium font-semibold'
       href={href}
     >
-      {title}
+      {displayTitle}
     </Anchor>
   );
 
@@ -42,7 +47,7 @@ export default function SubLink({
       Comp
     )
   ) : (
-    <h4 className='font-large text-primary text-left'>{title}</h4>
+    <h4 className='font-large text-primary text-left'>{displayTitle}</h4>
   );
 
   if (!items) {
@@ -72,11 +77,15 @@ export default function SubLink({
             )}
           >
             {items?.map((innerLink) => {
+              const innerHref = `${href}${innerLink.href}`;
+              const routeHref = innerHref.replace(/^\/docs/, '');
+              const translationKey = ROUTE_TITLE_KEYS[routeHref];
               const modifiedItems = {
                 ...innerLink,
-                href: `${href + innerLink.href}`,
+                href: innerHref,
                 level: level + 1,
                 isSheet,
+                translatedTitle: translationKey ? tRoutes(translationKey) : innerLink.title,
               };
               return <SubLink key={modifiedItems.href} {...modifiedItems} />;
             })}

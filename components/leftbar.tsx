@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Sheet,
   SheetClose,
@@ -11,6 +13,8 @@ import { AlignLeftIcon } from 'lucide-react';
 import { DialogTitle } from './ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import DocsMenu from './docs-menu';
+import { page_routes } from '@/lib/routes-config';
+import { useTranslations } from 'next-intl';
 
 export function Leftbar() {
   return (
@@ -23,6 +27,19 @@ export function Leftbar() {
 }
 
 export function SheetLeftbar() {
+  const t = useTranslations('nav');
+
+  const navlinks = [
+    {
+      title: t('learn'),
+      href: `/docs${page_routes[0].href}`,
+    },
+    {
+      title: t('quiz'),
+      href: '/quiz',
+    },
+  ];
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -39,7 +56,7 @@ export function SheetLeftbar() {
         </SheetHeader>
         <div className='flex flex-col gap-4 overflow-y-auto'>
           <div className='flex flex-col gap-2.5 mt-3 mx-2 px-5'>
-            <NavMenu isSheet />
+            <NavMenu isSheet navlinks={navlinks} />
           </div>
           <div className='mx-2 px-5'>
             <DocsMenu isSheet />

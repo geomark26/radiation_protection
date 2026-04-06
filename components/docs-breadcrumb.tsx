@@ -5,27 +5,30 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Fragment } from "react";
+} from '@/components/ui/breadcrumb';
+import { Fragment } from 'react';
+import { getTranslations } from 'next-intl/server';
 
-export default function DocsBreadcrumb({ paths }: { paths: string[] }) {
+export default async function DocsBreadcrumb({ paths }: { paths: string[] }) {
+  const t = await getTranslations('docs');
+
   return (
-    <div className="pb-5">
+    <div className='pb-5'>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink>Docs</BreadcrumbLink>
+            <BreadcrumbLink>{t('breadcrumbDocs')}</BreadcrumbLink>
           </BreadcrumbItem>
           {paths.map((path, index) => (
             <Fragment key={path}>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 {index < paths.length - 1 ? (
-                  <BreadcrumbLink className="a">
+                  <BreadcrumbLink className='a'>
                     {toTitleCase(path)}
                   </BreadcrumbLink>
                 ) : (
-                  <BreadcrumbPage className="b">
+                  <BreadcrumbPage className='b'>
                     {toTitleCase(path)}
                   </BreadcrumbPage>
                 )}
@@ -39,9 +42,9 @@ export default function DocsBreadcrumb({ paths }: { paths: string[] }) {
 }
 
 function toTitleCase(input: string): string {
-  const words = input.split("-");
+  const words = input.split('-');
   const capitalizedWords = words.map(
     (word) => word.charAt(0).toUpperCase() + word.slice(1)
   );
-  return capitalizedWords.join(" ");
+  return capitalizedWords.join(' ');
 }
