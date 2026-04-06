@@ -1,4 +1,5 @@
 import { getPreviousNext } from '@/lib/markdown';
+import { ROUTE_TITLE_KEYS } from '@/lib/routes-config';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { Link } from '@/lib/navigation';
 import { buttonVariants } from './ui/button';
@@ -7,6 +8,12 @@ import { getTranslations } from 'next-intl/server';
 export default async function Pagination({ pathname }: { pathname: string }) {
   const res = getPreviousNext(pathname);
   const t = await getTranslations('docs');
+  const rt = await getTranslations('routes');
+
+  function getTitle(page: { title: string; href: string }) {
+    const key = ROUTE_TITLE_KEYS[page.href];
+    return key ? rt(key) : page.title;
+  }
 
   return (
     <div className='grid grid-cols-2 flex-grow sm:py-10 py-7 gap-3'>
@@ -24,7 +31,7 @@ export default async function Pagination({ pathname }: { pathname: string }) {
               <ChevronLeftIcon className='w-[1rem] h-[1rem] mr-1' />
               {t('previous')}
             </span>
-            <span className='mt-1 ml-1'>{res.prev.title}</span>
+            <span className='mt-1 ml-1'>{getTitle(res.prev)}</span>
           </Link>
         )}
       </div>
@@ -42,7 +49,7 @@ export default async function Pagination({ pathname }: { pathname: string }) {
               {t('next')}
               <ChevronRightIcon className='w-[1rem] h-[1rem] ml-1' />
             </span>
-            <span className='mt-1 mr-1'>{res.next.title}</span>
+            <span className='mt-1 mr-1'>{getTitle(res.next)}</span>
           </Link>
         )}
       </div>
