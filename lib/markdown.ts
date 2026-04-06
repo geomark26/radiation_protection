@@ -63,9 +63,9 @@ export type BaseMdxFrontmatter = {
   description: string;
 };
 
-export async function getDocsForSlug(slug: string) {
+export async function getDocsForSlug(slug: string, locale: string = 'en') {
   try {
-    const contentPath = getDocsContentPath(slug);
+    const contentPath = getDocsContentPath(slug, locale);
     const rawMdx = await fs.readFile(contentPath, 'utf-8');
     return await parseMdx<BaseMdxFrontmatter>(rawMdx);
   } catch (err) {
@@ -73,8 +73,8 @@ export async function getDocsForSlug(slug: string) {
   }
 }
 
-export async function getDocsTocs(slug: string) {
-  const contentPath = getDocsContentPath(slug);
+export async function getDocsTocs(slug: string, locale: string = 'en') {
+  const contentPath = getDocsContentPath(slug, locale);
   const rawMdx = await fs.readFile(contentPath, 'utf-8');
   // captures between ## - #### can modify accordingly
   const headingsRegex = /^(#{2,4})\s(.+)$/gm;
@@ -106,10 +106,10 @@ function sluggify(text: string) {
   return slug.replace(/[^a-z0-9-]/g, '');
 }
 
-function getDocsContentPath(slug: string) {
+function getDocsContentPath(slug: string, locale: string = 'en') {
   return path.join(
     process.cwd(),
-    '/contents/docs/getting-started/',
+    `/contents/docs/${locale}/`,
     `${slug}/index.mdx`
   );
 }
@@ -118,7 +118,7 @@ function justGetFrontmatterFromMD<Frontmatter>(rawMd: string): Frontmatter {
   return matter(rawMd).data as Frontmatter;
 }
 
-export async function getAllChilds(pathString: string) {
+export async function getAllChilds(pathString: string, locale: string = 'en') {
   const items = pathString.split('/').filter((it) => it != '');
   let page_routes_copy = ROUTES;
 
@@ -135,7 +135,7 @@ export async function getAllChilds(pathString: string) {
     page_routes_copy.map(async (it) => {
       const totalPath = path.join(
         process.cwd(),
-        '/contents/docs/',
+        `/contents/docs/${locale}/`,
         prevHref,
         it.href,
         'index.mdx'
