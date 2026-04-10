@@ -14,12 +14,30 @@
     "fiveModules": "Five Learning Modules",
     "sections": "sections"
   },
+  "chapterQuiz": {
+    "title": "Chapter Quiz",
+    "description": "Test your understanding of this module with 7 randomly selected questions.",
+    "start": "Start Quiz",
+    "question": "Question",
+    "of": "of",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "resultsTitle": "Results",
+    "answeredCorrectly": "You answered {correct} correctly and {wrong} incorrectly.",
+    "reviewIncorrect": "Review Incorrect Answers",
+    "questionLabel": "Q:",
+    "yourAnswer": "Your Answer:",
+    "correctAnswer": "Correct Answer:",
+    "noAnswer": "No answer selected",
+    "retake": "Retake Quiz"
+  },
   "quiz": {
-    "welcomeTitle": "Welcome to the Retina / OCT Quiz!",
-    "welcomeDescription": "Test your knowledge about retinal physiology, OCT technology, and more.",
+    "welcomeTitle": "Welcome to the Radiation Protection Quiz!",
+    "welcomeDescription": "20 questions drawn equally from all five modules — physics, interactions, radiobiology, protection principles, and medical applications.",
     "startQuiz": "Start Quiz",
     "loading": "Loading Questions...",
-    "title": "Retina / OCT Quiz",
+    "title": "Radiation Protection Quiz",
     "question": "Question",
     "of": "of",
     "back": "Back",
@@ -32,7 +50,10 @@
     "yourAnswer": "Your Answer:",
     "correctAnswer": "Correct Answer:",
     "noAnswer": "No answer selected",
-    "retakeQuiz": "Retake Quiz"
+    "retakeQuiz": "Retake Quiz",
+    "statsQuestions": "Questions",
+    "statsModules": "Modules",
+    "statsPerModule": "Per module"
   },
   "docs": {
     "onThisPage": "On this page",
@@ -87,6 +108,7 @@
     "module5-diagnostic": "Diagnostic Radiology and Image-Guided Interventional Procedures",
     "module5-nuclear": "Nuclear Medicine",
     "module5-radiotherapy": "Radiotherapy",
-    "references": "References"
+    "references": "References",
+    "quiz": "Quiz"
   }
 }

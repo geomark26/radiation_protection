@@ -16,22 +16,24 @@ export default async function Pagination({ pathname }: { pathname: string }) {
   }
 
   return (
-    <div className='grid grid-cols-2 flex-grow sm:py-10 py-7 gap-3'>
+    <div className='flex flex-col sm:grid sm:grid-cols-2 flex-grow sm:py-10 py-7 gap-3'>
       <div>
         {res.prev && (
           <Link
             className={buttonVariants({
               variant: 'outline',
               className:
-                'no-underline w-full flex flex-col pl-3 !py-8 !items-start',
+                'no-underline w-full flex flex-col pl-3 !py-8 items-stretch!',
             })}
             href={`/docs${res.prev.href}`}
           >
-            <span className='flex items-center text-muted-foreground text-xs'>
-              <ChevronLeftIcon className='w-[1rem] h-[1rem] mr-1' />
+            <span className='flex items-center text-muted-foreground text-xs self-start'>
+              <ChevronLeftIcon className='w-[1rem] h-[1rem] mr-1 shrink-0' />
               {t('previous')}
             </span>
-            <span className='mt-1 ml-1'>{getTitle(res.prev)}</span>
+            <span className='mt-1 ml-1 truncate text-left'>
+              {getTitle(res.prev)}
+            </span>
           </Link>
         )}
       </div>
@@ -41,15 +43,17 @@ export default async function Pagination({ pathname }: { pathname: string }) {
             className={buttonVariants({
               variant: 'outline',
               className:
-                'no-underline w-full flex flex-col pr-3 !py-8 !items-end',
+                'no-underline w-full flex flex-col pr-3 !py-8 items-stretch!',
             })}
             href={`/docs${res.next.href}`}
           >
-            <span className='flex items-center text-muted-foreground text-xs'>
+            <span className='flex items-center text-muted-foreground text-xs sm:self-end'>
               {t('next')}
-              <ChevronRightIcon className='w-[1rem] h-[1rem] ml-1' />
+              <ChevronRightIcon className='w-[1rem] h-[1rem] ml-1 shrink-0' />
             </span>
-            <span className='mt-1 mr-1'>{getTitle(res.next)}</span>
+            <span className='mt-1 mr-1 truncate sm:text-right text-left'>
+              {getTitle(res.next)}
+            </span>
           </Link>
         )}
       </div>
