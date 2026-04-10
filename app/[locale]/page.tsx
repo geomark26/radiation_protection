@@ -20,6 +20,10 @@ const MODULE_META = [
   { icon: ActivityIcon, accent: 'from-violet-500/15 to-indigo-500/5' },
 ];
 
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'el' }];
+}
+
 export default function Home() {
   const t = useTranslations('home');
   const tRoutes = useTranslations('routes');

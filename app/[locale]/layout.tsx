@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/components/contexts/theme-provider';
 import { Navbar } from '@/components/navbar';
