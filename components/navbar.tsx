@@ -46,7 +46,7 @@ export function Navbar() {
             <Search />
             <div className='flex ml-2.5 sm:ml-0'>
               <Link
-                href='https://github.com/IliasKatsinaris/OCT-app'
+                href='https://github.com/geomark26/radiation_protection'
                 className={buttonVariants({ variant: 'ghost', size: 'icon' })}
               >
                 <svg
