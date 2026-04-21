@@ -9,6 +9,7 @@ import rehypeCodeTitles from 'rehype-code-titles';
 import { page_routes, ROUTES } from './routes-config';
 import { visit } from 'unist-util-visit';
 import matter from 'gray-matter';
+import { slug as githubSlug } from 'github-slugger';
 
 // custom components imports
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -102,8 +103,7 @@ export function getPreviousNext(path: string) {
 }
 
 function sluggify(text: string) {
-  const slug = text.toLowerCase().replace(/\s+/g, '-');
-  return slug.replace(/[^a-z0-9-]/g, '');
+  return githubSlug(text);
 }
 
 function getDocsContentPath(slug: string, locale: string = 'en') {
