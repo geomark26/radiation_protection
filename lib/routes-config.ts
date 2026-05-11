@@ -110,7 +110,7 @@ export const ROUTES: EachRoute[] = [
     ],
   },
   {
-    title: 'Module 4: Principles and System of Radiation Protection',
+    title: 'Module 4: Principles of Radiation Protection',
     href: '/chapter-4',
     noLink: true,
     items: [
@@ -202,7 +202,8 @@ export const page_routes = ROUTES.map((it) => getRecurrsiveAllLinks(it)).flat();
 export const ROUTE_TITLE_KEYS: Record<string, string> = {
   '/chapter-1': 'module1',
   '/chapter-1/introduction': 'module1-introduction',
-  '/chapter-1/electromagnetic-and-particulate-radiation': 'module1-electromagnetic',
+  '/chapter-1/electromagnetic-and-particulate-radiation':
+    'module1-electromagnetic',
   '/chapter-1/atomic-structure': 'module1-atomic',
   '/chapter-1/radioactivity': 'module1-radioactivity',
   '/chapter-1/quiz': 'quiz',
@@ -228,7 +229,8 @@ export const ROUTE_TITLE_KEYS: Record<string, string> = {
   '/chapter-4/system-of-radiation-protection': 'module4-system',
   '/chapter-4/types-and-categories-of-exposure': 'module4-types',
   '/chapter-4/fundamental-principles': 'module4-fundamental',
-  '/chapter-4/quantities-and-units-of-radiation-protection': 'module4-quantities',
+  '/chapter-4/quantities-and-units-of-radiation-protection':
+    'module4-quantities',
   '/chapter-4/dose-limits': 'module4-dose',
   '/chapter-4/quiz': 'quiz',
   '/chapter-5': 'module5',
