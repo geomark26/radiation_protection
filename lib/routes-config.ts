@@ -19,7 +19,7 @@ export const ROUTES: EachRoute[] = [
       },
       {
         title: 'Electromagnetic and Particle Radiation',
-        href: '/electromagnetic-and-particle-radiation',
+        href: '/electromagnetic-and-particulate-radiation',
       },
       {
         title: 'Atomic Structure',
