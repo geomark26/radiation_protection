@@ -77,7 +77,7 @@
   "routes": {
     "module1": "Module 1: Basic Physics of Ionizing Radiation",
     "module1-introduction": "Introduction",
-    "module1-electromagnetic": "Electromagnetic and Particulate Radiation",
+    "module1-electromagnetic": "Electromagnetic and Particle Radiation",
     "module1-atomic": "Atomic Structure",
     "module1-radioactivity": "Radioactivity",
     "module2": "Module 2: Interactions of Ionizing Radiation with Matter",
