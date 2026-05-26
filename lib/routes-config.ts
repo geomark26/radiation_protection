@@ -18,7 +18,7 @@ export const ROUTES: EachRoute[] = [
         href: '/introduction',
       },
       {
-        title: 'Electromagnetic and Particulate Radiation',
+        title: 'Electromagnetic and Particle Radiation',
         href: '/electromagnetic-and-particulate-radiation',
       },
       {
